@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <button class="newDeck-btn" id="newDeck-btn">New Deck</button>
+      <h4 id="remaining-text"></h4>
+    </header>
+
+    <section id="cards-section">
+      <h2 class="whowins1">Game Of War</h2>
+      <h2></h2>
+      <div class="card1-container" id="card-container1"></div>
+      <div class="card2-container" id="card-container2"></div>
+      <h2></h2>
+    </section>
+    <button class="disabled draw-btn" id="draw-btn">Draw Cards</button>
+    <div class="warning visible" id="warning">
+      !!! &nbsp<font color="darkred"> 'New Deck'&nbsp </font>- Start Game !!!
+    </div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player
+      src="https://assets5.lottiefiles.com/packages/lf20_laGIqKVpcD.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      autoplay
+      loop
+      class="congrats-gif visible"
+      id="winner-gif"
+    ></lottie-player>
+    <lottie-player
+      src="https://assets6.lottiefiles.com/packages/lf20_ilwhiuo7.json"
+      background="transparent"
+      color="red"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+      class="congrats-gif visible"
+      id="loser-gif"
+    ></lottie-player>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

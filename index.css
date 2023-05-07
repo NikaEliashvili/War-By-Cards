@@ -1,0 +1,348 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+@import "compass/css3";
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+    z-index: 3;
+}
+
+p {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+    background-image: url('table-BG.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: rgba(5, 74, 91, 0.7);
+    padding: 0.5rem 0.2rem;
+}
+
+header h4 {
+    display: inline-block;
+    color: rgb(13, 213, 136);
+    font-size: 1.25rem;
+}
+
+header h4 p {
+    margin-left: 7px;
+}
+
+
+
+.draw-btn,
+.newDeck-btn {
+    font-family: inherit;
+    padding: 0.3rem 1rem;
+    font-weight: 600;
+    font-size: 1.12rem;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+
+.newDeck-btn {
+    background-color: rgb(255, 205, 141);
+    color: rgb(108, 7, 7);
+    box-shadow: 0px 2px rgb(76, 46, 8), 0 5px 30px rgb(0, 17, 8);
+    margin-right: 1rem;
+}
+
+.newDeck-btn:hover {
+    background-color: rgb(108, 7, 7);
+    color: rgb(255, 205, 141);
+}
+
+.draw-btn {
+    width: 98%;
+    margin: 0 auto 0.5rem;
+    height: 3rem;
+    background-color: rgb(43, 226, 125);
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 2px rgb(2, 60, 28), 10px 7px 30px rgb(0, 17, 8);
+}
+
+.draw-btn:hover {
+    background-color: rgb(0, 255, 115);
+}
+
+.disabled:disabled,
+.disabled[disabled]:hover {
+    background-color: #d3d1d1;
+    color: #909090;
+    cursor: not-allowed;
+
+}
+
+#cards-section {
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 6rem;
+    color: rgb(13, 213, 136);
+    position: relative;
+}
+
+.card1-container,
+.card2-container {
+    height: 10.5rem;
+    width: calc(10.5rem * 5 / 7);
+    border: 1.5px solid rgb(255, 255, 255);
+    border-radius: 8px;
+
+}
+
+.card1-container img,
+.card2-container img {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.card1-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.card2-container {
+    margin-bottom: 1rem;
+}
+
+.warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0.5rem;
+    color: rgb(2, 34, 34);
+    background-color: rgba(179, 211, 184, 0.9);
+    width: 300px;
+    height: 100px;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 30px rgba(1, 23, 19, 0.3),
+        15px 0px 30px rgba(1, 23, 19, 0.3),
+        -15px 0 30px rgba(1, 23, 19, 0.3);
+    text-shadow: 0 1px black;
+    animation: warning-anim 0.2s linear 1 alternate;
+    z-index: 3;
+}
+
+
+.visible {
+    display: none;
+}
+
+.remaining-number {
+    animation: change-num-animation 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48) 1 alternate;
+}
+
+.congrats-gif {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+
+.whowins {
+    animation: pop-up-anim1 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48) 1 alternate;
+}
+
+.whowins1 {
+    position: absolute;
+    top: 1rem;
+    margin: 0 auto;
+    color: rgb(232, 255, 149);
+    font-weight: 900;
+    z-index: 2;
+}
+
+.score-number {
+    color: rgb(233, 208, 18);
+    animation: pop-up-anim2 1s cubic-bezier(0.26, 0.53, 0.74, 1.48) 1 alternate;
+}
+
+.winner {
+    animation: winner 5s ease 1 alternate, motion 0.5s 2.5s ease infinite alternate;
+
+}
+
+.winner-reverse {
+    color: #e310b9;
+    animation: winner-reverse 1.5s ease 1 alternate, motion 0.5s 1.6s ease infinite alternate;
+}
+
+
+/* animations  */
+
+
+@keyframes winner-reverse {
+    0% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+
+}
+
+@keyframes winner {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+
+}
+
+@keyframes motion {
+
+    from {
+        transform: scale(1);
+        opacity: 1;
+        text-shadow: 0 2px 5px rgb(1, 27, 19);
+    }
+
+    to {
+        transform: scale(1.1);
+        text-shadow: 0 10px 10px rgb(1, 27, 19);
+    }
+
+
+}
+
+
+@keyframes pop-up-anim2 {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.3, 1);
+        color: rgb(233, 18, 18);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1, 1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes pop-up-anim1 {
+    0% {
+        opacity: 0;
+        transform: scale(0.3, 1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes change-num-animation {
+    from {
+        transform: scale(0.3);
+        color: brown;
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        color: rgb(239, 97, 97);
+        opacity: 1;
+    }
+}
+
+@keyframes warning-anim {
+    from {
+        transform: scale(0);
+        transform: translate(0, -50px);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: scale(1, 1);
+        transform: translate(0, 0);
+        opacity: 1;
+
+    }
+}
+
+/* media query */
+@media (max-width: 390px) {
+    header h4 {
+        font-size: 0.9rem;
+    }
+
+    .newDeck-btn {
+        font-size: 0.8rem;
+        z-index: 1;
+    }
+
+    #cards-section {
+        padding: 0 3rem;
+        text-align: center;
+    }
+
+    .congrats-gif {
+        z-index: -1;
+    }
+
+    .whowins {
+        top: 7rem;
+    }
+}
